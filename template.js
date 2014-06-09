@@ -1,0 +1,1 @@
+module.exports = '<div class="flip"> \n  <div class="flip-card"> \n    <div class="face front"></div> \n    <div class="face back"></div> \n  </div>\n</div> \n';

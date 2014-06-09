@@ -1,0 +1,23 @@
+{
+  "name": "flip",
+  "repo": "matthewmueller/flip",
+  "description": "flip cards",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "component/matches-selector": "0.1.4",
+    "component/domify": "1.2.2",
+    "component/classes": "1.2.1"
+  },
+  "development": {
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "styles": [
+    "flip.css"
+  ]
+}
