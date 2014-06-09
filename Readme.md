@@ -1,7 +1,7 @@
 
 # flip
 
-  flip cards
+  Flip cards. Supports more than 2 cards
 
 ## Installation
 
@@ -9,9 +9,49 @@
 
     $ component install matthewmueller/flip
 
+## Example
+
+```js
+var buy = domify('<div class="card buy">Buy</div>')
+var sell = domify('<div class="card sell">Sell</div>')
+var hold = domify('<div class="card hold">Hold</div>')
+
+var flip = Flip()
+  .card(buy)
+  .card(sell)
+  .card(hold)
+
+cards.appendChild(flip.el)
+
+var i = 1;
+cards.addEventListener('click', function() {
+  flip.flip(i++);
+  i = 2 < i ? 0 : i;
+});
+```
+
 ## API
 
+### Flip()
 
+Initialize `Flip`.
+
+### flip#card(el)
+
+Add an card to the flip. The first card will be the front, the second card will be the back.
+
+### flip#flip(n|selector)
+
+Flip to the `n`th card or flip to the first card that matches the `selector`.
+
+```js
+flip.flip(1);
+flip.flip('.buy');
+```
+
+## TODO
+
+- Add `flip#effect(str)` for different transitions
 
 ## License
 

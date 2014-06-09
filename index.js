@@ -27,14 +27,14 @@ function Flip() {
 }
 
 /**
- * Face
+ * Add a card
  *
  * @param {Element} el
  * @return {Flip}
  * @api public
  */
 
-Flip.prototype.face = function(el) {
+Flip.prototype.card = function(el) {
   var len = this.cards.length;
   if (!len) this.front.appendChild(el);
   else if (1 == len) this.back.appendChild(el);
@@ -46,6 +46,8 @@ Flip.prototype.face = function(el) {
  * Flip
  *
  * @param {Number|String} cls
+ * @return {Flip} self
+ * @api public
  */
 
 Flip.prototype.flip = function(cls) {
@@ -54,14 +56,13 @@ Flip.prototype.flip = function(cls) {
 
   if ('string' == typeof cls) {
     for (var i = 0, card; card = cards[i]; i++) {
-      if (matches(card)) break;
+      if (matches(card, cls)) break;
     }
   } else {
     card = cards[cls];
   }
-  // console.log(cards, );
 
-  if (!card) return this;
+  if (!card || card == this.front.firstChild) return this;
 
   // update the back card
   this.back.textContent = '';

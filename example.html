@@ -4,7 +4,6 @@
   <link rel="stylesheet" href="build/build.css">
   <style>
     #cards {
-      background: white;
       width: 500px;
       height: 200px;
       line-height: 200px;
@@ -41,6 +40,12 @@
 
   <div id="cards"></div>
 
+  <div id="buttons">
+    <button name="sell">sell</button>
+    <button name="buy">buy</button>
+    <button name="hold">hold</button>
+  </div>
+
   <script src="build/build.js" type="text/javascript"></script>
   <script type="text/javascript">
     var domify = require('domify');
@@ -51,9 +56,9 @@
     var c = domify('<div class="card hold">Hold</div>')
 
     var flip = Flip()
-      .face(a)
-      .face(b)
-      .face(c)
+      .card(a)
+      .card(b)
+      .card(c)
 
     cards.appendChild(flip.el)
 
@@ -63,6 +68,13 @@
       flip.flip(i++);
       i = 2 < i ? 0 : i;
     });
+
+
+    buttons.addEventListener('click', function(e) {
+      var target = e.target;
+      var name = target.getAttribute('name');
+      flip.flip('.' + name);
+    })
 
   </script>
 </body>
